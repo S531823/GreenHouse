@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */; };
+		3F3D6CFF24062F5800E9925C /* Plants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D6CFE24062F5800E9925C /* Plants.swift */; };
 		3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F46F0172400C490000CC4B8 /* AppDelegate.swift */; };
 		3F46F01A2400C490000CC4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F46F0192400C490000CC4B8 /* SceneDelegate.swift */; };
 		3F46F01F2400C490000CC4B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F46F01D2400C490000CC4B8 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantListTableViewController.swift; sourceTree = "<group>"; };
+		3F3D6CFE24062F5800E9925C /* Plants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plants.swift; sourceTree = "<group>"; };
 		3F46F0142400C48F000CC4B8 /* GreenHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F46F0172400C490000CC4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F46F0192400C490000CC4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				3F46F0172400C490000CC4B8 /* AppDelegate.swift */,
 				3F46F0192400C490000CC4B8 /* SceneDelegate.swift */,
 				3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */,
+				3F3D6CFE24062F5800E9925C /* Plants.swift */,
 				3F46F01D2400C490000CC4B8 /* Main.storyboard */,
 				3F46F0202400C490000CC4B8 /* Assets.xcassets */,
 				3F46F0222400C490000CC4B8 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3D6CFF24062F5800E9925C /* Plants.swift in Sources */,
 				3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */,
 				3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */,
 				3F93D4CD2405FE0A005AD200 /* AddPlantViewController.swift in Sources */,

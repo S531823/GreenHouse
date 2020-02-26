@@ -10,7 +10,12 @@ import UIKit
 
 class PlantListTableViewController: UITableViewController {
     
+    var plant: Plant!
+    
     var plants: [String] = ["Spikey the Cactus", "Lily the Snake Plant", "Yoshi the Yucca"]
+    
+    let nameLBLTag = 10
+    let optimalRowHeight:CGFloat = 100
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,28 +23,29 @@ class PlantListTableViewController: UITableViewController {
         navigationItem.title = "My Plants"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settings(sender:)))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addPlant(sender:)))
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return plants.count
+        return Plants.shared.numPlants()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return optimalRowHeight
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel!.text = plants[indexPath.row]
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "plantCell")!
+        if let plant = Plants.shared[indexPath.row] {
+            let nameLBL = cell.viewWithTag(nameLBLTag) as! UILabel
+            
+            nameLBL.text = plant.name + " the " + plant.species
+        }
         return cell
     }
     
