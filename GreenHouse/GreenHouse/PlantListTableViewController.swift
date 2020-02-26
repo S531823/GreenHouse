@@ -44,7 +44,15 @@ class PlantListTableViewController: UITableViewController {
         if let plant = Plants.shared[indexPath.row] {
             let nameLBL = cell.viewWithTag(nameLBLTag) as! UILabel
             
-            nameLBL.text = plant.name + " the " + plant.species
+            if plant.name == "" { // If the plant doesn't have a name, only display species
+                nameLBL.text = plant.species
+            }
+            else if plant.species == "" {  // If the plant doesn't have a specified species, only display name
+                nameLBL.text = plant.name
+            }
+            else { // If the plant has both, combine both with "the" between
+                nameLBL.text = plant.name + " the " + plant.species
+            }
         }
         return cell
     }

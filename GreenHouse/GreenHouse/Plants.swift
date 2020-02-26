@@ -31,7 +31,9 @@ class Plants {
     private var plants:[Plant] = [
         Plant(name: "Spikey", species: "Cactus", waterFrequency: [1: "week"], sunlightFrequency: [8: "day"]),
         Plant(name: "Lily", species: "Snake Plant", waterFrequency: [2: "day"], sunlightFrequency: [2: "day"]),
-        Plant(name: "Yoshi", species: "Yucca", waterFrequency: [3: "week"], sunlightFrequency: [2: "day"])
+        Plant(name: "Yoshi", species: "Yucca", waterFrequency: [3: "week"], sunlightFrequency: [2: "day"]),
+        Plant(name: "", species: "Tomato Plant", waterFrequency: [1: "day"], sunlightFrequency: [6: "day"]),
+        Plant(name: "Lucus", species: "", waterFrequency: [1: "day"], sunlightFrequency: [1: "day"])
     ]
     
     private init(){                         // We can't make another Restaurants instance, which is a Good Thing: we only want 1 model
