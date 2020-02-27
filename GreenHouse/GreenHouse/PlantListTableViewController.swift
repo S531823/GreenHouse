@@ -59,7 +59,11 @@ class PlantListTableViewController: UITableViewController {
     
     @objc
     func settings(sender: Any) {
-        
+
+        let settingsViewCont = (storyboard?.instantiateViewController(identifier: Constants.settingsViewController) as? SettingsViewController)!
+
+            //self.present(settingsViewCont, animated: true)
+        navigationController?.pushViewController(settingsViewCont, animated: true)
     }
 
     @objc

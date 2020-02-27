@@ -45,6 +45,21 @@
             </objects>
             <point key="canvasLocation" x="173.91304347826087" y="126.5625"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="vkj-OG-kyI">
+            <objects>
+                <viewController storyboardIdentifier="settingsVC" id="Ogo-5n-oPc" customClass="SettingsViewController" customModule="GreenHouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aT8-ss-yPq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jm0-Dw-riv"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jtk-eN-Nqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="913" y="-498"/>
+        </scene>
         <!--Add Plant View Controller-->
         <scene sceneID="d1s-El-9Wt">
             <objects>
