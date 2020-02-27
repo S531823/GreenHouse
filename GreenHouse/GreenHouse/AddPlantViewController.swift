@@ -21,7 +21,23 @@ class AddPlantViewController: UIViewController {
         super.viewDidLoad()
 
     }
-
-
-
+    
+    @IBAction func addPlant(){
+        let name = nameTF.text!
+        let species = speciesTF.text!
+        let waterTimes = waterTimesTF.text!
+        let waterPeriod = waterPeriodTF.text!
+        let sunlightTimes = sunlightTimesTF.text!
+        let sunlightPeriod = sunlightPeriodTF.text!
+        
+        let plant = Plant(name: name, species: species, waterTimes: waterTimes, waterPeriod: waterPeriod,
+                          sunlightTimes: sunlightTimes, sunlightPeriod: sunlightPeriod)
+        Plants.shared.add(plant: plant)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancel(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
