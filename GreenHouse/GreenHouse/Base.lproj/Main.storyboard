@@ -97,7 +97,7 @@
         <!--Add Plant View Controller-->
         <scene sceneID="d1s-El-9Wt">
             <objects>
-                <viewController id="rWW-2V-HgG" customClass="AddPlantViewController" customModule="GreenHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addPlantVC" id="rWW-2V-HgG" customClass="AddPlantViewController" customModule="GreenHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NRg-2s-3Z9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

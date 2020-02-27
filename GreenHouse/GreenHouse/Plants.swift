@@ -16,12 +16,11 @@ struct Plant {
     var sunlightFrequency: [Int: String]
 }
 
-/// A collection of fine dining establishments, aka Restaurants
 class Plants {
     
     private static var _shared:Plants! // Only visible in this struct
     
-    static var shared:Plants {         // To access this anywhere, in the app just write Plants.shared
+    static var shared:Plants { // To access this anywhere, in the app just write Plants.shared
         if _shared == nil {
             _shared = Plants()
         }
@@ -36,23 +35,23 @@ class Plants {
         Plant(name: "Lucus", species: "", waterFrequency: [1: "day"], sunlightFrequency: [1: "day"])
     ]
     
-    private init(){                         // We can't make another Restaurants instance, which is a Good Thing: we only want 1 model
+    private init(){
+    
     }
     
-    
-    /// Returns plant at a given index, nil if non-existant
+    // Returns plant at a given index, nil if non-existant
     /// Example usage:  Plants.shared.getPlant(at:5)
-    /// - Parameter index: plant to return
-    
+    /// Parameter index: plant to return
     func getPlant(at index:Int)->Plant? {
         if index >= 0 && index < plants.count {
             return plants[index]
-        } else {
+        }
+        else {
             return nil
         }
     }
     
-    /// Returns the # of plants
+    // Returns the # of plants
     func numPlants() -> Int {
         return plants.count
     }
@@ -62,18 +61,11 @@ class Plants {
         return index >= 0 && index < plants.count ? plants[index] : nil
     }
     
-    /// Adds a plant to the collection
+    // Adds a plant to the collection
     /// Example usage: Plants.shared.add(plant:Plant(name: "", species: "Tomato Plant"), waterFrequency: [1: "day"], sunlightFrequency: [6: "day"])
-    /// - Parameter plant: plant to add
-    
+    /// Parameter plant: plant to add
     func add(plant:Plant){
         plants.append(plant)
-    }
-    
-    /// Now we can delete plants too..
-    /// - Parameter at: <#at description#>
-    func delete(at:Int){
-        plants.remove(at: at)
     }
     
 }
