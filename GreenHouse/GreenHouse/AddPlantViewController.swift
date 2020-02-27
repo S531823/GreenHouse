@@ -22,7 +22,7 @@ class AddPlantViewController: UIViewController {
 
     }
     
-    @IBAction func addPlant(){
+    @IBAction func addPlant(sender:Any){
         let name = nameTF.text!
         let species = speciesTF.text!
         let waterTimes = waterTimesTF.text!
@@ -30,13 +30,16 @@ class AddPlantViewController: UIViewController {
         let sunlightTimes = sunlightTimesTF.text!
         let sunlightPeriod = sunlightPeriodTF.text!
         
-        let plant = Plant(name: name, species: species, waterTimes: waterTimes, waterPeriod: waterPeriod,
-                          sunlightTimes: sunlightTimes, sunlightPeriod: sunlightPeriod)
+        let waterFrequency = [Int(waterTimes)!:waterPeriod]
+        let sunlightFrequency = [Int(sunlightTimes)!:sunlightPeriod]
+        
+        let plant = Plant(name: name, species: species, waterFrequency: waterFrequency,
+                          sunlightFrequency: sunlightFrequency)
         Plants.shared.add(plant: plant)
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancel(){
+    @IBAction func cancel(sender:Any){
         self.dismiss(animated: true, completion: nil)
     }
     

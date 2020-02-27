@@ -66,6 +66,7 @@
 			children = (
 				3F46F0172400C490000CC4B8 /* AppDelegate.swift */,
 				3F46F0192400C490000CC4B8 /* SceneDelegate.swift */,
+				3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */,
 				3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */,
 				3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */,
 				3F73C09324074B6A006BB0F0 /* Constants.swift */,
@@ -74,7 +75,6 @@
 				3F46F0202400C490000CC4B8 /* Assets.xcassets */,
 				3F46F0222400C490000CC4B8 /* LaunchScreen.storyboard */,
 				3F46F0252400C490000CC4B8 /* Info.plist */,
-				3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */,
 			);
 			path = GreenHouse;
 			sourceTree = "<group>";

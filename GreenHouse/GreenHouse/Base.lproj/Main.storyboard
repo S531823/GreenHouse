@@ -107,8 +107,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add Plant" id="Gys-ai-Wmw">
-                                        <barButtonItem key="leftBarButtonItem" title="Add Plant" id="kaI-nl-H8G"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="JnA-ig-fan"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Add Plant" id="kaI-nl-H8G">
+                                            <connections>
+                                                <action selector="addPlantWithSender:" destination="rWW-2V-HgG" id="qYn-rh-yIO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="JnA-ig-fan">
+                                            <connections>
+                                                <action selector="cancelWithSender:" destination="rWW-2V-HgG" id="nYM-tw-Qoi"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -194,6 +202,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Zvg-he-zju"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTF" destination="Xle-4b-89S" id="kLk-bh-iuS"/>
+                        <outlet property="speciesTF" destination="2Ww-fx-4wS" id="13b-89-HTe"/>
+                        <outlet property="sunlightPeriodTF" destination="a9G-KL-iVh" id="akd-1E-1f2"/>
+                        <outlet property="sunlightTimesTF" destination="X3k-zn-3fW" id="Y0f-Hg-PGh"/>
+                        <outlet property="waterPeriodTF" destination="QZT-Mz-iA6" id="pdZ-KC-7Bb"/>
+                        <outlet property="waterTimesTF" destination="iM1-oE-RY5" id="7Kz-aN-QWp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iej-ND-mbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
