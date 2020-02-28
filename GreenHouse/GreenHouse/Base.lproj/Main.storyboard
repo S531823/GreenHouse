@@ -80,15 +80,22 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUU-ms-3Mq">
-                                <rect key="frame" x="366" y="125" width="30" height="39"/>
+                                <rect key="frame" x="365" y="126" width="30" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="SetBusyHours" destination="Ogo-5n-oPc" eventType="touchUpInside" id="mup-SI-g8d"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="jm0-Dw-riv"/>
                     </view>
+                    <connections>
+                        <outlet property="FromHrsTF" destination="hcm-Ci-Pp5" id="s76-w1-OBE"/>
+                        <outlet property="ToHrsTF" destination="BLr-uD-yEK" id="co7-mI-7a1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtk-eN-Nqv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

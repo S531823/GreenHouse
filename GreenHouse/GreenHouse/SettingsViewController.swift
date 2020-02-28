@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet var FromHrsTF:UITextField!
+    @IBOutlet var ToHrsTF:UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +30,9 @@ class SettingsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func SetBusyHours(){
+        
+    }
 
 }
