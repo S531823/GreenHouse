@@ -23,8 +23,13 @@ class PlantListTableViewController: UITableViewController {
         navigationItem.title = "My Plants"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(settings(sender:)))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(addPlant(sender:)))
+        NotificationCenter.default.addObserver(self, selector: #selector(plantAdded(notification:)), name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
     }
 
+    @objc func plantAdded(notification:Notification) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,9 +73,9 @@ class PlantListTableViewController: UITableViewController {
 
     @objc
     func addPlant(sender: Any) {
-//        let addPlantViewCont = (storyboard?.instantiateViewController(identifier: Constants.addPlantViewController) as? AddPlantViewController)!
-//
-//        navigationController?.pushViewController(addPlantViewCont, animated: true)
+        let addPlantViewCont = (storyboard?.instantiateViewController(identifier: Constants.addPlantViewController) as? AddPlantViewController)!
+
+        self.present(addPlantViewCont, animated: true, completion: nil)
     }
 
 }

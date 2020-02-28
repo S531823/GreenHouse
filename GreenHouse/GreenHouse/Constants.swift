@@ -11,5 +11,5 @@ import Foundation
 
 struct Constants {
     static let settingsViewController = "settingsVC"
-//    static let addPlantViewController = "addPlantVC"
+    static let addPlantViewController = "addPlantVC"
 }

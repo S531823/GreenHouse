@@ -25,18 +25,21 @@ class AddPlantViewController: UIViewController {
     @IBAction func addPlant(sender:Any){
         let name = nameTF.text!
         let species = speciesTF.text!
-        let waterTimes = waterTimesTF.text!
         let waterPeriod = waterPeriodTF.text!
-        let sunlightTimes = sunlightTimesTF.text!
         let sunlightPeriod = sunlightPeriodTF.text!
         
-        let waterFrequency = [Int(waterTimes)!:waterPeriod]
-        let sunlightFrequency = [Int(sunlightTimes)!:sunlightPeriod]
-        
-        let plant = Plant(name: name, species: species, waterFrequency: waterFrequency,
-                          sunlightFrequency: sunlightFrequency)
-        Plants.shared.add(plant: plant)
-        self.dismiss(animated: true, completion: nil)
+        if let waterTimes = Int(waterTimesTF.text!) {
+            if let sunlightTimes = Int(sunlightTimesTF.text!) {
+                let waterFrequency = [Int(waterTimes):waterPeriod]
+                let sunlightFrequency = [Int(sunlightTimes):sunlightPeriod]
+                
+                let plant = Plant(name: name, species: species, waterFrequency: waterFrequency,
+                                  sunlightFrequency: sunlightFrequency)
+                Plants.shared.add(plant: plant)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func cancel(sender:Any){
