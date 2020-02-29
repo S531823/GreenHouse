@@ -26,6 +26,7 @@ class PlantListTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(plantAdded(notification:)), name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
     }
 
+    // Refresh table view after adding a plant
     @objc func plantAdded(notification:Notification) {
         tableView.reloadData()
     }
@@ -36,14 +37,17 @@ class PlantListTableViewController: UITableViewController {
         return 1
     }
     
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Plants.shared.numPlants()
     }
     
+    // Height of each table cell
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return optimalRowHeight
     }
 
+    // Contents of table cells
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "plantCell")!
         if let plant = Plants.shared[indexPath.row] {
@@ -55,7 +59,7 @@ class PlantListTableViewController: UITableViewController {
             else if plant.species == "" {  // If the plant doesn't have a specified species, only display name
                 nameLBL.text = plant.name
             }
-            else { // If the plant has both, combine both with "the" between
+            else { // If the plant has both, combine both with "the" in between
                 nameLBL.text = plant.name + " the " + plant.species
             }
         }
@@ -64,7 +68,6 @@ class PlantListTableViewController: UITableViewController {
     
     @objc
     func settings(sender: Any) {
-
         let settingsViewCont = (storyboard?.instantiateViewController(identifier: Constants.settingsViewController) as? SettingsViewController)!
 
             //self.present(settingsViewCont, animated: true)
