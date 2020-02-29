@@ -1,3 +1,4 @@
+![GreenHouse Logo](GreenHouse/GreenHouse/Assets.xcassets/AppIcon.appiconset/GreenHouseLogo_180px.png)
 # GreenHouse
 
 ## Developers:
