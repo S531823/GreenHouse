@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F253F3D240A0F0B0013EC40 /* PlantInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F253F3C240A0F0B0013EC40 /* PlantInfoViewController.swift */; };
 		3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */; };
 		3F3D6CFF24062F5800E9925C /* Plants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D6CFE24062F5800E9925C /* Plants.swift */; };
 		3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F46F0172400C490000CC4B8 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F253F3C240A0F0B0013EC40 /* PlantInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantInfoViewController.swift; sourceTree = "<group>"; };
 		3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantListTableViewController.swift; sourceTree = "<group>"; };
 		3F3D6CFE24062F5800E9925C /* Plants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plants.swift; sourceTree = "<group>"; };
 		3F46F0142400C48F000CC4B8 /* GreenHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +73,7 @@
 				3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */,
 				3F73C09324074B6A006BB0F0 /* Constants.swift */,
 				3F3D6CFE24062F5800E9925C /* Plants.swift */,
+				3F253F3C240A0F0B0013EC40 /* PlantInfoViewController.swift */,
 				3F46F01D2400C490000CC4B8 /* Main.storyboard */,
 				3F46F0202400C490000CC4B8 /* Assets.xcassets */,
 				3F46F0222400C490000CC4B8 /* LaunchScreen.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				3F3D6CFF24062F5800E9925C /* Plants.swift in Sources */,
 				3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */,
+				3F253F3D240A0F0B0013EC40 /* PlantInfoViewController.swift in Sources */,
 				3F73C09624074B9A006BB0F0 /* SettingsViewController.swift in Sources */,
 				3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */,
 				3F93D4CD2405FE0A005AD200 /* AddPlantViewController.swift in Sources */,
