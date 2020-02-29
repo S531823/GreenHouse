@@ -225,7 +225,7 @@
         <!--Plant Info View Controller-->
         <scene sceneID="ahR-Ac-7bJ">
             <objects>
-                <viewController id="X7P-Mi-xHc" customClass="PlantInfoViewController" customModule="GreenHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="plantInfoVC" id="X7P-Mi-xHc" customClass="PlantInfoViewController" customModule="GreenHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FXU-9l-7os">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQt-pP-Qct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689.8550724637685" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="1203" y="310"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gUX-hC-qgM">
@@ -351,24 +351,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66A-OQ-RHr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-736.23188405797111" y="126.5625"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="1pB-Gm-buB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k1A-xV-Z1S" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Hs-W3-xoa">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="X7P-Mi-xHc" kind="relationship" relationship="rootViewController" id="ey4-hZ-Bad"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gsa-R6-lGj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2779.7101449275365" y="-1.3392857142857142"/>
         </scene>
     </scenes>
 </document>

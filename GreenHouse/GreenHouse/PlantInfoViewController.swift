@@ -9,28 +9,16 @@
 import UIKit
 
 class PlantInfoViewController: UIViewController {
-
     
     @IBOutlet weak var editNameTF: UITextField!
-    
-    
     @IBOutlet weak var editSpeciesTF: UITextField!
-    
-    
     @IBOutlet weak var editWaterFrequencyTF: UITextField!
-    
-    
     @IBOutlet weak var editWaterTimes: UITextField!
-    
-    
     @IBOutlet weak var editSunlightExposureTF: UITextField!
-    
-    
     @IBOutlet weak var editSunlightExposureHoursTF: UITextField!
-    
-    
-    
+
     @IBAction func save(_ sender: Any) {
+        
     }
     
     override func viewDidLoad() {

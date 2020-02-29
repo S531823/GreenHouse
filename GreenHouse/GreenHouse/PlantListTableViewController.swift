@@ -66,6 +66,11 @@ class PlantListTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let plantInfoViewCont = (storyboard?.instantiateViewController(identifier: Constants.plantInfoViewController) as? PlantInfoViewController)!
+        navigationController?.pushViewController(plantInfoViewCont, animated: true)
+    }
+
     @objc
     func settings(sender: Any) {
         let settingsViewCont = (storyboard?.instantiateViewController(identifier: Constants.settingsViewController) as? SettingsViewController)!
@@ -80,5 +85,5 @@ class PlantListTableViewController: UITableViewController {
 
         self.present(addPlantViewCont, animated: true, completion: nil)
     }
-
+    
 }
