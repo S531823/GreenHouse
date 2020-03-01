@@ -12,6 +12,11 @@ class PlantListTableViewController: UITableViewController {
     
     var plant: Plant!
     
+    // currentCell records the index of the selected cell to be used in other pages without a tableview
+    struct Global {
+        static var currentCell: Int!
+    }
+    
     var plants: [String] = ["Spikey the Cactus", "Lily the Snake Plant", "Yoshi the Yucca"]
     
     let nameLBLTag = 10
@@ -70,6 +75,9 @@ class PlantListTableViewController: UITableViewController {
         let plantInfoViewCont = (storyboard?.instantiateViewController(identifier: Constants.plantInfoViewController) as? PlantInfoViewController)!
         plantInfoViewCont.plant = Plants.shared[indexPath.row]
         navigationController?.pushViewController(plantInfoViewCont, animated: true)
+        
+        // Set currentCell to the selected row so that it can be used in PlantInfoViewController
+        Global.currentCell = indexPath.row
     }
 
     @objc

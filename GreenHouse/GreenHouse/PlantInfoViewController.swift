@@ -31,13 +31,13 @@ class PlantInfoViewController: UIViewController {
         else { // If the plant has both, combine both with "the" in between
             navigationItem.title = plant.name + " the " + plant.species
         }
-
-        editNameTF.placeholder = plant.name
-        editSpeciesTF.placeholder = plant.species
-        editWaterFrequencyTF.placeholder = String(plant.waterFrequency)
-        editWaterTimeFrameTF.placeholder = plant.waterTimeFrame
-        editSunlightDurationTF.placeholder = String(plant.sunlightDuration)
-        editSunlightTimeFrameTF.placeholder = plant.sunlightTimeFrame
+        
+        editNameTF.text = plant.name
+        editSpeciesTF.text = plant.species
+        editWaterFrequencyTF.text = String(plant.waterFrequency)
+        editWaterTimeFrameTF.text = plant.waterTimeFrame
+        editSunlightDurationTF.text = String(plant.sunlightDuration)
+        editSunlightTimeFrameTF.text = plant.sunlightTimeFrame
     }
     
     @IBAction func cancel(sender:Any){
@@ -45,7 +45,17 @@ class PlantInfoViewController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
+        let plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: Int(editWaterFrequencyTF.text!)!, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: Int(editSunlightDurationTF.text!)!, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
         
+        Plants.shared.edit(index: PlantListTableViewController.Global.currentCell, plant: plant)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
+        self.dismiss(animated: true, completion: nil)
+        
+        let alertController = UIAlertController(title: "Saved", message:
+            "Changes have been successfully saved.", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 
 }

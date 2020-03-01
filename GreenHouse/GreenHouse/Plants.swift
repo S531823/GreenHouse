@@ -22,7 +22,7 @@ class Plants {
     
     private static var _shared:Plants! // Only visible in this struct
     
-    static var shared:Plants { // To access this anywhere, in the app just write Plants.shared
+    static var shared: Plants { // To access this anywhere, in the app just write Plants.shared
         if _shared == nil {
             _shared = Plants()
         }
@@ -53,21 +53,25 @@ class Plants {
         }
     }
     
+    /// Subscript Plants, so usage would be Plants.shared[5]
+    subscript(index: Int) -> Plant? {
+        return index >= 0 && index < plants.count ? plants[index] : nil
+    }
+    
     // Returns the # of plants
     func numPlants() -> Int {
         return plants.count
     }
     
-    // Alternatively, we could subscript Plants, so usage would be Plants.shared[5]
-    subscript(index:Int) -> Plant? {
-        return index >= 0 && index < plants.count ? plants[index] : nil
-    }
-    
     // Adds a plant to the collection
     /// Example usage: Plants.shared.add(plant:Plant(name: "", species: "Tomato Plant"), waterFrequency: [1: "day"], sunlightFrequency: [6: "day"])
     /// Parameter plant: plant to add
-    func add(plant:Plant){
+    func add(plant: Plant){
         plants.append(plant)
+    }
+    
+    func edit(index: Int, plant: Plant) {
+        plants[index] = plant
     }
     
 }
