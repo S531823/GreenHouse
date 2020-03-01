@@ -68,6 +68,7 @@ class PlantListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let plantInfoViewCont = (storyboard?.instantiateViewController(identifier: Constants.plantInfoViewController) as? PlantInfoViewController)!
+        plantInfoViewCont.plant = Plants.shared[indexPath.row]
         navigationController?.pushViewController(plantInfoViewCont, animated: true)
     }
 

@@ -10,6 +10,8 @@ import UIKit
 
 class PlantInfoViewController: UIViewController {
     
+    var plant: Plant!
+    
     @IBOutlet weak var editNameTF: UITextField!
     @IBOutlet weak var editSpeciesTF: UITextField!
     @IBOutlet weak var editWaterFrequencyTF: UITextField!
@@ -23,8 +25,16 @@ class PlantInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        navigationItem.title = "Plants name"
+        
+        if plant.name == "" { // If the plant doesn't have a name, only display species
+            navigationItem.title = plant.species
+        }
+        else if plant.species == "" {  // If the plant doesn't have a specified species, only display name
+            navigationItem.title = plant.name
+        }
+        else { // If the plant has both, combine both with "the" in between
+            navigationItem.title = plant.name + " the " + plant.species
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
     }
