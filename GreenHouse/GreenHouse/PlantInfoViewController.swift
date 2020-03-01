@@ -16,8 +16,8 @@ class PlantInfoViewController: UIViewController {
     @IBOutlet weak var editSpeciesTF: UITextField!
     @IBOutlet weak var editWaterFrequencyTF: UITextField!
     @IBOutlet weak var editWaterTimes: UITextField!
-    @IBOutlet weak var editSunlightExposureTF: UITextField!
-    @IBOutlet weak var editSunlightExposureHoursTF: UITextField!
+    @IBOutlet weak var editSunLightFrequencyTF: UITextField!
+    @IBOutlet weak var editSunlightHoursTF: UITextField!
 
     @IBAction func save(_ sender: Any) {
         
@@ -35,8 +35,17 @@ class PlantInfoViewController: UIViewController {
         else { // If the plant has both, combine both with "the" in between
             navigationItem.title = plant.name + " the " + plant.species
         }
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
+
+        editNameTF.placeholder = plant.name
+        editSpeciesTF.placeholder = plant.species
+        editWaterFrequencyTF.placeholder = plant.waterTimeFrame
+        editWaterTimes.placeholder = String(plant.waterFrequency)
+        editSunLightFrequencyTF.placeholder = plant.sunlightTimeFrame
+        editSunlightHoursTF.placeholder = String(plant.sunlightFrequency)
+    }
+    
+    @IBAction func cancel(sender:Any){
+        self.dismiss(animated: true, completion: nil)
     }
     
 

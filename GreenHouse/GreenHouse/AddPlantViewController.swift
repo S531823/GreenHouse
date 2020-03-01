@@ -10,12 +10,12 @@ import UIKit
 
 class AddPlantViewController: UIViewController {
 
-    @IBOutlet weak var nameTF:UITextField!
-    @IBOutlet weak var speciesTF:UITextField!
-    @IBOutlet weak var waterTimesTF:UITextField!
-    @IBOutlet weak var waterPeriodTF:UITextField!
-    @IBOutlet weak var sunlightTimesTF:UITextField!
-    @IBOutlet weak var sunlightPeriodTF:UITextField!
+    @IBOutlet weak var nameTF: UITextField!
+    @IBOutlet weak var speciesTF: UITextField!
+    @IBOutlet weak var waterTimesTF: UITextField!
+    @IBOutlet weak var waterPeriodTF: UITextField!
+    @IBOutlet weak var sunlightTimesTF: UITextField!
+    @IBOutlet weak var sunlightPeriodTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +30,7 @@ class AddPlantViewController: UIViewController {
         
         if let waterTimes = Int(waterTimesTF.text!) {
             if let sunlightTimes = Int(sunlightTimesTF.text!) {
-                let waterFrequency = [Int(waterTimes):waterPeriod]
-                let sunlightFrequency = [Int(sunlightTimes):sunlightPeriod]
-                
-                let plant = Plant(name: name, species: species, waterFrequency: waterFrequency,
-                                  sunlightFrequency: sunlightFrequency)
+                let plant = Plant(name: name, species: species, waterFrequency: waterTimes, waterTimeFrame: waterPeriod, sunlightFrequency: sunlightTimes, sunlightTimeFrame: sunlightPeriod)
                 Plants.shared.add(plant: plant)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
                 self.dismiss(animated: true, completion: nil)
