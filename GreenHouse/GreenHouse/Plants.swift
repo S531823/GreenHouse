@@ -14,7 +14,7 @@ struct Plant {
     var species: String
     var waterFrequency: Int
     var waterTimeFrame: String
-    var sunlightFrequency: Int
+    var sunlightDuration: Int
     var sunlightTimeFrame: String
 }
 
@@ -30,11 +30,11 @@ class Plants {
     }
     
     private var plants:[Plant] = [
-        Plant(name: "Spikey", species: "Cactus", waterFrequency: 1, waterTimeFrame: "week", sunlightFrequency: 8, sunlightTimeFrame: "day"),
-        Plant(name: "Lily", species: "Snake Plant", waterFrequency: 2, waterTimeFrame: "day", sunlightFrequency: 2, sunlightTimeFrame: "day"),
-        Plant(name: "Yoshi", species: "Yucca", waterFrequency: 3, waterTimeFrame: "week", sunlightFrequency: 2, sunlightTimeFrame: "day"),
-        Plant(name: "", species: "Tomato Plant", waterFrequency: 2, waterTimeFrame: "day", sunlightFrequency: 6, sunlightTimeFrame: "day"),
-        Plant(name: "Lucus", species: "", waterFrequency: 1, waterTimeFrame: "day", sunlightFrequency: 1, sunlightTimeFrame: "day")
+        Plant(name: "Spikey", species: "Cactus", waterFrequency: 1, waterTimeFrame: "week", sunlightDuration: 8, sunlightTimeFrame: "day"),
+        Plant(name: "Lily", species: "Snake Plant", waterFrequency: 2, waterTimeFrame: "day", sunlightDuration: 2, sunlightTimeFrame: "day"),
+        Plant(name: "Yoshi", species: "Yucca", waterFrequency: 3, waterTimeFrame: "week", sunlightDuration: 2, sunlightTimeFrame: "day"),
+        Plant(name: "", species: "Tomato Plant", waterFrequency: 2, waterTimeFrame: "day", sunlightDuration: 6, sunlightTimeFrame: "day"),
+        Plant(name: "Lucus", species: "", waterFrequency: 1, waterTimeFrame: "day", sunlightDuration: 1, sunlightTimeFrame: "day")
     ]
     
     private init(){

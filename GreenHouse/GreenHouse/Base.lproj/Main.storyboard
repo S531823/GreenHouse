@@ -212,10 +212,10 @@
                     <connections>
                         <outlet property="nameTF" destination="Xle-4b-89S" id="kLk-bh-iuS"/>
                         <outlet property="speciesTF" destination="2Ww-fx-4wS" id="13b-89-HTe"/>
-                        <outlet property="sunlightPeriodTF" destination="a9G-KL-iVh" id="akd-1E-1f2"/>
-                        <outlet property="sunlightTimesTF" destination="X3k-zn-3fW" id="Y0f-Hg-PGh"/>
-                        <outlet property="waterPeriodTF" destination="QZT-Mz-iA6" id="pdZ-KC-7Bb"/>
-                        <outlet property="waterTimesTF" destination="iM1-oE-RY5" id="7Kz-aN-QWp"/>
+                        <outlet property="sunlightDurationTF" destination="X3k-zn-3fW" id="Y0f-Hg-PGh"/>
+                        <outlet property="sunlightTimeFrameTF" destination="a9G-KL-iVh" id="akd-1E-1f2"/>
+                        <outlet property="waterFrequencyTF" destination="iM1-oE-RY5" id="kPR-fS-L1S"/>
+                        <outlet property="waterTimeFrameTF" destination="QZT-Mz-iA6" id="pdZ-KC-7Bb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iej-ND-mbq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -338,10 +338,10 @@
                     <connections>
                         <outlet property="editNameTF" destination="sl2-eO-RBc" id="Y1w-ub-vjp"/>
                         <outlet property="editSpeciesTF" destination="7d1-gq-fLR" id="zdD-QZ-PED"/>
-                        <outlet property="editSunLightFrequencyTF" destination="ZJm-4M-y6L" id="Ccr-on-MAY"/>
-                        <outlet property="editSunlightHoursTF" destination="RIy-k3-yzK" id="pu0-Et-SBX"/>
-                        <outlet property="editWaterFrequencyTF" destination="qbZ-YR-tUc" id="ZNo-QV-PPE"/>
-                        <outlet property="editWaterTimes" destination="Zjk-6V-JWY" id="huh-Pe-shb"/>
+                        <outlet property="editSunlightDurationTF" destination="RIy-k3-yzK" id="tKa-fR-Izw"/>
+                        <outlet property="editSunlightTimeFrameTF" destination="ZJm-4M-y6L" id="yCZ-Hl-YrD"/>
+                        <outlet property="editWaterFrequencyTF" destination="Zjk-6V-JWY" id="6Uf-vb-ndb"/>
+                        <outlet property="editWaterTimeFrameTF" destination="qbZ-YR-tUc" id="ZNo-QV-PPE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQt-pP-Qct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

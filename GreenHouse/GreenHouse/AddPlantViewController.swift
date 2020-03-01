@@ -12,10 +12,10 @@ class AddPlantViewController: UIViewController {
 
     @IBOutlet weak var nameTF: UITextField!
     @IBOutlet weak var speciesTF: UITextField!
-    @IBOutlet weak var waterTimesTF: UITextField!
-    @IBOutlet weak var waterPeriodTF: UITextField!
-    @IBOutlet weak var sunlightTimesTF: UITextField!
-    @IBOutlet weak var sunlightPeriodTF: UITextField!
+    @IBOutlet weak var waterFrequencyTF: UITextField!
+    @IBOutlet weak var waterTimeFrameTF: UITextField!
+    @IBOutlet weak var sunlightDurationTF: UITextField!
+    @IBOutlet weak var sunlightTimeFrameTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,18 +23,11 @@ class AddPlantViewController: UIViewController {
     }
     
     @IBAction func addPlant(sender:Any){
-        let name = nameTF.text!
-        let species = speciesTF.text!
-        let waterPeriod = waterPeriodTF.text!
-        let sunlightPeriod = sunlightPeriodTF.text!
-        
-        if let waterTimes = Int(waterTimesTF.text!) {
-            if let sunlightTimes = Int(sunlightTimesTF.text!) {
-                let plant = Plant(name: name, species: species, waterFrequency: waterTimes, waterTimeFrame: waterPeriod, sunlightFrequency: sunlightTimes, sunlightTimeFrame: sunlightPeriod)
-                Plants.shared.add(plant: plant)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
-                self.dismiss(animated: true, completion: nil)
-            }
+        if Int(waterFrequencyTF.text!) != nil && waterTimeFrameTF.text != nil && Int(sunlightDurationTF.text!) != nil && sunlightTimeFrameTF.text != nil {
+            let plant = Plant(name: nameTF.text!, species: speciesTF.text!, waterFrequency: Int(waterFrequencyTF.text!)!, waterTimeFrame: waterTimeFrameTF.text!, sunlightDuration: Int(sunlightDurationTF.text!)!, sunlightTimeFrame: sunlightTimeFrameTF.text!)
+            Plants.shared.add(plant: plant)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

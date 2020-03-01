@@ -15,13 +15,9 @@ class PlantInfoViewController: UIViewController {
     @IBOutlet weak var editNameTF: UITextField!
     @IBOutlet weak var editSpeciesTF: UITextField!
     @IBOutlet weak var editWaterFrequencyTF: UITextField!
-    @IBOutlet weak var editWaterTimes: UITextField!
-    @IBOutlet weak var editSunLightFrequencyTF: UITextField!
-    @IBOutlet weak var editSunlightHoursTF: UITextField!
-
-    @IBAction func save(_ sender: Any) {
-        
-    }
+    @IBOutlet weak var editWaterTimeFrameTF: UITextField!
+    @IBOutlet weak var editSunlightDurationTF: UITextField!
+    @IBOutlet weak var editSunlightTimeFrameTF: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,25 +34,18 @@ class PlantInfoViewController: UIViewController {
 
         editNameTF.placeholder = plant.name
         editSpeciesTF.placeholder = plant.species
-        editWaterFrequencyTF.placeholder = plant.waterTimeFrame
-        editWaterTimes.placeholder = String(plant.waterFrequency)
-        editSunLightFrequencyTF.placeholder = plant.sunlightTimeFrame
-        editSunlightHoursTF.placeholder = String(plant.sunlightFrequency)
+        editWaterFrequencyTF.placeholder = String(plant.waterFrequency)
+        editWaterTimeFrameTF.placeholder = plant.waterTimeFrame
+        editSunlightDurationTF.placeholder = String(plant.sunlightDuration)
+        editSunlightTimeFrameTF.placeholder = plant.sunlightTimeFrame
     }
     
     @IBAction func cancel(sender:Any){
         self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func save(_ sender: Any) {
+        
     }
-    */
 
 }
