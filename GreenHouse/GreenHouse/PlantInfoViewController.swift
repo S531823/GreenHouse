@@ -45,17 +45,38 @@ class PlantInfoViewController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-        let plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: Int(editWaterFrequencyTF.text!)!, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: Int(editSunlightDurationTF.text!)!, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
+        let oldPlant: Plant = plant
+        if PlantListTableViewController.Global.currentCell != nil {
+            let plant: Plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: Int(editWaterFrequencyTF.text!)!, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: Int(editSunlightDurationTF.text!)!, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
+            
+            Plants.shared.edit(index: PlantListTableViewController.Global.currentCell, plant: plant)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
+            self.dismiss(animated: true, completion: nil)
+            
+            // Check if the fields have been changed.
+            if oldPlant.name == plant.name && oldPlant.species == plant.species && oldPlant.waterFrequency == plant.waterFrequency && oldPlant.waterTimeFrame == plant.waterTimeFrame && oldPlant .sunlightDuration == plant.sunlightDuration && oldPlant.sunlightTimeFrame == plant.sunlightTimeFrame {
+                // Display pop-up alert for success message
+                let alertController = UIAlertController(title: "Error", message:
+                    "No changes were made.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            }
+            else {
+                // Display pop-up alert for error message that no fields were changed
+                let alertController = UIAlertController(title: "Saved", message:
+                    "Changes have beens saved.", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
+        else {
+            // Display pop-up alert for error message if the app couldn't retrieve the current cell index
+            let alertController = UIAlertController(title: "Error", message:
+                "An error occured while saving the changes.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alertController, animated: true, completion: nil)
+        }
         
-        Plants.shared.edit(index: PlantListTableViewController.Global.currentCell, plant: plant)
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
-        self.dismiss(animated: true, completion: nil)
-        
-        let alertController = UIAlertController(title: "Saved", message:
-            "Changes have been successfully saved.", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default))
-        
-        self.present(alertController, animated: true, completion: nil)
     }
 
 }
