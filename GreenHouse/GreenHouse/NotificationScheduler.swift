@@ -10,16 +10,20 @@ import Foundation
 import Foundation
 import UserNotifications
 struct NotificationScheduler {
-    private var frequancy : Int
-    private var TimeFrame : String
+    private var waterFrequancy : Int
+    private var waterTimeFrame : String
+    private var sunlightDuration : Int
+    private var sunlightTimeFrame: String
     
-    init(frequancy : Int, TimeFrame : String) {
-        self.frequancy = frequancy
-        self.TimeFrame = TimeFrame
+    init(waterFrequancy : Int, waterTimeFrame : String,sunlightDuration : Int, sunlightTimeFrame: String) {
+        self.waterFrequancy = waterFrequancy
+        self.waterTimeFrame = waterTimeFrame
+        self.sunlightDuration = sunlightDuration
+        self.sunlightTimeFrame = sunlightTimeFrame
     }
     func schedule() -> Void
     {
-        print("test")
+        print("schedule")
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
         let content = UNMutableNotificationContent()
