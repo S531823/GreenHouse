@@ -15,6 +15,7 @@
 		3F46F01F2400C490000CC4B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F46F01D2400C490000CC4B8 /* Main.storyboard */; };
 		3F46F0212400C490000CC4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F46F0202400C490000CC4B8 /* Assets.xcassets */; };
 		3F46F0242400C490000CC4B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F46F0222400C490000CC4B8 /* LaunchScreen.storyboard */; };
+		3F61870D2434E7FA00A6B57E /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61870C2434E7FA00A6B57E /* NotificationScheduler.swift */; };
 		3F73C09424074B6A006BB0F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73C09324074B6A006BB0F0 /* Constants.swift */; };
 		3F73C09624074B9A006BB0F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */; };
 		3F93D4CD2405FE0A005AD200 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */; };
@@ -31,6 +32,7 @@
 		3F46F0202400C490000CC4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F46F0232400C490000CC4B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F46F0252400C490000CC4B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F61870C2434E7FA00A6B57E /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		3F73C09324074B6A006BB0F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				3F46F0172400C490000CC4B8 /* AppDelegate.swift */,
 				3F46F0192400C490000CC4B8 /* SceneDelegate.swift */,
 				3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */,
+				3F61870C2434E7FA00A6B57E /* NotificationScheduler.swift */,
 				3F3D6CFC2406194000E9925C /* PlantListTableViewController.swift */,
 				3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */,
 				3F73C09324074B6A006BB0F0 /* Constants.swift */,
@@ -157,6 +160,7 @@
 				3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */,
 				3F253F3D240A0F0B0013EC40 /* PlantInfoViewController.swift in Sources */,
 				3F73C09624074B9A006BB0F0 /* SettingsViewController.swift in Sources */,
+				3F61870D2434E7FA00A6B57E /* NotificationScheduler.swift in Sources */,
 				3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */,
 				3F93D4CD2405FE0A005AD200 /* AddPlantViewController.swift in Sources */,
 				3F46F01A2400C490000CC4B8 /* SceneDelegate.swift in Sources */,
