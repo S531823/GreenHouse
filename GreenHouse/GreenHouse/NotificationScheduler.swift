@@ -9,7 +9,7 @@
 import Foundation
 import Foundation
 import UserNotifications
-struct NotificationScheduler {
+class NotificationScheduler {
     private var waterFrequancy : Int
     private var waterTimeFrame : String
     private var sunlightDuration : Int
@@ -21,26 +21,35 @@ struct NotificationScheduler {
         self.sunlightDuration = sunlightDuration
         self.sunlightTimeFrame = sunlightTimeFrame
     }
+    
     func schedule() -> Void
     {
-        print("schedule")
-        let center = UNUserNotificationCenter.current()
-        center.removeAllPendingNotificationRequests()
-        let content = UNMutableNotificationContent()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success {
+                 let center = UNUserNotificationCenter.current()
+                       center.removeAllPendingNotificationRequests()
+                       let content = UNMutableNotificationContent()
 
-        content.title = "Pour Water to Plant"
-        content.body = "remainder for pouring water"
-        content.categoryIdentifier = "Remainder"
-        content.sound = .default
-        
-        var dateComponents = DateComponents()
-        dateComponents.hour = 09
-        dateComponents.minute = 00
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5 , repeats: false)
-        
-        //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        center.add(request)
+                       content.title = "Pour Water to Plant"
+                       content.body = "remainder for pouring water"
+                       content.categoryIdentifier = "Remainder"
+                       content.sound = .default
+                       
+//                       var dateComponents = DateComponents()
+//                       dateComponents.hour = 09
+//                       dateComponents.minute = 00
+                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+                       
+                       //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request)
+                       //center.add(request)
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+       // print("schedule")
+       
         
 }
 }
