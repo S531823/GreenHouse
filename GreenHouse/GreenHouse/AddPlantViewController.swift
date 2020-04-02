@@ -26,7 +26,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDataSource, UIPicker
         self.sunlightTimeFramePV.dataSource = self
     }
 
-    let frequency = ["day", "week", "month", "year"]
+    let frequency = ["day", "week"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
