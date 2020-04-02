@@ -26,30 +26,74 @@ class NotificationScheduler {
     {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
-                 let center = UNUserNotificationCenter.current()
-                       center.removeAllPendingNotificationRequests()
-                       let content = UNMutableNotificationContent()
-
-                       content.title = "Pour Water to Plant"
-                       content.body = "remainder for pouring water"
-                       content.categoryIdentifier = "Remainder"
-                       content.sound = .default
-                       
-//                       var dateComponents = DateComponents()
-//                       dateComponents.hour = 09
-//                       dateComponents.minute = 00
-                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-                       
-                       //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request)
-                       //center.add(request)
+                print("granted")
+                let center = UNUserNotificationCenter.current()
+                center.removeAllPendingNotificationRequests()
+                let content = UNMutableNotificationContent()
+                
+                content.title = "Pour Water to Plant"
+                content.body = "remainder for pouring water"
+                content.categoryIdentifier = "Remainder"
+                content.sound = .default
+                
+                var dateComponents = DateComponents()
+                //switch between week and day of pickview
+                switch self.waterTimeFrame {
+                case "day":
+                    // var time = 0
+                    let  time = 24 / self.waterFrequancy
+                    var tempHour = 1
+                    for _ in 1...self.waterFrequancy
+                    {
+                        dateComponents.hour = tempHour
+                        dateComponents.minute = 00
+                        //                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+                        //                       print("trigger")
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request)
+                        tempHour += time
+                        if tempHour >= 24
+                        {
+                            tempHour = 0
+                        }
+                        //print("completeday" + String(tempHour))
+                    }
+                default:
+                    var day : Double = Double(7.0 / Double(self.waterFrequancy))
+                    let check : Int = 7 / self.waterFrequancy
+                    if day-Double(check) > 0
+                    {
+                        day+=1
+                    }
+                    var tempDay = 0
+                    for _ in 1...self.waterFrequancy
+                    {
+                        
+                        dateComponents.weekday = Int(day)
+                        dateComponents.hour = 09
+                        dateComponents.minute = 00
+                        //                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
+                        //                       print("trigger")
+                        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request)
+                        tempDay += Int(day)
+                        if tempDay > 7
+                        {
+                            tempDay = 1
+                        }
+                        //print("completeweek" + String(tempDay))
+                        
+                    }
+                }
+                
             } else if let error = error {
                 print(error.localizedDescription)
             }
         }
-       // print("schedule")
-       
+        // print("schedule")
         
-}
+        
+    }
 }
