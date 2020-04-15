@@ -58,7 +58,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDataSource, UIPicker
             Plants.shared.add(plant: plant)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
             let notificationScheduler = NotificationScheduler.init(waterFrequancy: Int(waterFrequencyTF.text!)! , waterTimeFrame: waterFreq, sunlightDuration: Int(sunlightDurationTF.text!)!, sunlightTimeFrame: sunlightFreq)
-            notificationScheduler.schedule();
+            notificationScheduler.RequestPermission()
             self.dismiss(animated: true, completion: nil)
         }
     }
