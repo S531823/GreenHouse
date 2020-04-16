@@ -19,13 +19,13 @@ class AddPlantViewController: UIViewController, UIPickerViewDataSource, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.waterTimeFramePV.delegate = self
         self.waterTimeFramePV.dataSource = self
         self.sunlightTimeFramePV.delegate = self
         self.sunlightTimeFramePV.dataSource = self
     }
-
+    
     let frequency = ["day", "week"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -53,13 +53,28 @@ class AddPlantViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     @IBAction func addPlant(sender:Any){
-        if Int(waterFrequencyTF.text!) != nil && Int(sunlightDurationTF.text!) != nil {
-            let plant = Plant(name: nameTF.text!, species: speciesTF.text!, waterFrequency: Int(waterFrequencyTF.text!)!, waterTimeFrame: waterFreq, sunlightDuration: Int(sunlightDurationTF.text!)!, sunlightTimeFrame: sunlightFreq)
-            Plants.shared.add(plant: plant)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
-            let notificationScheduler = NotificationScheduler.init(waterFrequancy: Int(waterFrequencyTF.text!)! , waterTimeFrame: waterFreq, sunlightDuration: Int(sunlightDurationTF.text!)!, sunlightTimeFrame: sunlightFreq)
-            notificationScheduler.RequestPermission()
-            self.dismiss(animated: true, completion: nil)
+        if let i = Int(waterFrequencyTF.text!) ,let j = Int(sunlightDurationTF.text!)  {
+            if i > 0 && j > 0 && i < 5 && j < 12
+            {
+                let plant = Plant(name: nameTF.text!, species: speciesTF.text!, waterFrequency: i, waterTimeFrame: waterFreq, sunlightDuration: j, sunlightTimeFrame: sunlightFreq)
+                Plants.shared.add(plant: plant)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
+                let notificationScheduler = NotificationScheduler.init(waterFrequancy: i , waterTimeFrame: waterFreq, sunlightDuration: j, sunlightTimeFrame: sunlightFreq)
+                notificationScheduler.RequestPermission()
+                self.dismiss(animated: true, completion: nil)}
+            else{
+                let ac = UIAlertController(title: "Invalid Entry of hours", message: "Entered value should be is out of bounds", preferredStyle: .alert)
+                let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                ac.addAction(action)
+                self.present(ac,animated:true)
+                
+            }
+        }
+        else{
+            let ac = UIAlertController(title: "Invalid Entry" ,message: "Entered value should be an integer", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            ac.addAction(action)
+            self.present(ac,animated:true)
         }
     }
     
