@@ -59,7 +59,7 @@ class PlantInfoViewController: UIViewController {
             }
             else {
                 // Display pop-up alert for success message
-                let alertController = UIAlertController(title: "Saved", message:
+                let alertController = UIAlertController(title: "\(editNameTF.text!)\t\(editSpeciesTF.text!)Saved", message:
                     "Changes have been saved.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alertController, animated: true, completion: nil)
