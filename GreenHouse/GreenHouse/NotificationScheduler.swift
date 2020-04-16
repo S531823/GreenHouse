@@ -25,47 +25,42 @@ class NotificationScheduler  {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
                 print("permission granted")
-                self.schedule()
+                self.waterSchedule()
+                print("scheduling sunlight remainder notifications")
+                self.sunLightSchedule()
+                 print("sunLight remainder added")
             } else if let error = error {
                 print(error.localizedDescription)
             }
         }
     }
     
-    func schedule() {
-     
+    func waterSchedule() {
                       let center = UNUserNotificationCenter.current()
                       center.removeAllPendingNotificationRequests()
-        
                       let content = UNMutableNotificationContent()
-                      
                       content.title = "Pour Water to Plant"
-                      content.body = "remainder for pouring water"
+                      content.body = "Remainder for pouring water"
                       content.categoryIdentifier = "Remainder"
                       content.sound = .default
-                      
                       var dateComponents = DateComponents()
                       //switch between week and day of pickview
                       switch self.waterTimeFrame {
                       case "day":
-                          // var time = 0
                           let  time = 24 / self.waterFrequancy
                           var tempHour = 1
                           for _ in 1...self.waterFrequancy
                           {
                               dateComponents.hour = tempHour
                               dateComponents.minute = 00
-                              //                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-                              //                       print("trigger")
                               let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                               let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                               UNUserNotificationCenter.current().add(request) {(error) in
                                      if let error = error {
                                          print("error: \(error)")
                                      } else {
-                                         print("Scheduled Notification")
+                                          print("water remainder added")
                                      }
-
                                  }
                               tempHour += time
                               if tempHour >= 24
@@ -88,15 +83,13 @@ class NotificationScheduler  {
                               dateComponents.weekday = Int(day)
                               dateComponents.hour = 09
                               dateComponents.minute = 00
-                              //                       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 2, repeats: false)
-                              //                       print("trigger")
                               let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                               let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                               UNUserNotificationCenter.current().add(request) {(error) in
                                      if let error = error {
                                          print("error: \(error)")
                                      } else {
-                                         print("Scheduled Notification")
+                                        print("water remainder added")
                                      }
 
                                  }
@@ -112,6 +105,73 @@ class NotificationScheduler  {
                       
                    
               }
+    
+       func sunLightSchedule() {
+       
+       
+        let content = UNMutableNotificationContent()
+        
+        var dateComponents = DateComponents()
+    switch self.sunlightTimeFrame {
+                         case "day":
+                            let  time = self.sunlightDuration
+                            
+                             content.title = "Keep plant under the sun"
+                             content.body = "Remainder for keeping plant under the sun"
+                             content.categoryIdentifier = "Remainder"
+                             content.sound = .default
+                                 dateComponents.hour = 09
+                                 dateComponents.minute = 00
+                                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                                 UNUserNotificationCenter.current().add(request) {(error) in
+                                        if let error = error {
+                                            print("error: \(error)")
+                                        } else {
+                                             print("water remainder added")
+                                        }
+                                    }
+                                
+                                 //print("completeday" + String(tempHour))
+                             
+                         default:
+                             var day : Double = Double(7.0 / Double(self.waterFrequancy))
+                             let check : Int = 7 / self.waterFrequancy
+                             if day-Double(check) > 0
+                             {
+                                 day+=1
+                             }
+                             var tempDay = 0
+                             for _ in 1...self.waterFrequancy
+                             {
+                                 
+                                 dateComponents.weekday = Int(day)
+                                 dateComponents.hour = 09
+                                 dateComponents.minute = 00
+                                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                                 let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                                 UNUserNotificationCenter.current().add(request) {(error) in
+                                        if let error = error {
+                                            print("error: \(error)")
+                                        } else {
+                                           print("water remainder added")
+                                        }
+
+                                    }
+                                 tempDay += Int(day)
+                                 if tempDay > 7
+                                 {
+                                     tempDay = 1
+                                 }
+                                 //print("completeweek" + String(tempDay))
+                                 
+                             }
+                         }
+                         
+    }
+    
+    
+    
         
     }
     
