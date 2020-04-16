@@ -71,6 +71,15 @@ class PlantListTableViewController: UITableViewController {
         return cell
     }
     
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            Plants.shared.delete(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let plantInfoViewCont = (storyboard?.instantiateViewController(identifier: Constants.plantInfoViewController) as? PlantInfoViewController)!
         plantInfoViewCont.plant = Plants.shared[indexPath.row]

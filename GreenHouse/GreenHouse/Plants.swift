@@ -70,6 +70,10 @@ class Plants {
         plants.append(plant)
     }
     
+    func delete(index: Int){
+        plants.remove(at: index)
+    }
+    
     func edit(index: Int, plant: Plant) {
         plants[index] = plant
     }
