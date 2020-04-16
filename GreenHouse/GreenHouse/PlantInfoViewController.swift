@@ -52,7 +52,7 @@ class PlantInfoViewController: UIViewController {
             // Check if the fields have been changed.
             if oldPlant.name == plant.name && oldPlant.species == plant.species && oldPlant.waterFrequency == plant.waterFrequency && oldPlant.waterTimeFrame == plant.waterTimeFrame && oldPlant .sunlightDuration == plant.sunlightDuration && oldPlant.sunlightTimeFrame == plant.sunlightTimeFrame {
                 // Display pop-up alert for error message that no fields were changed
-                let alertController = UIAlertController(title: "", message:
+                let alertController = UIAlertController(title: "\(editNameTF.text!)\t\(editSpeciesTF.text!)", message:
                     "No changes were made.", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default))
                 self.present(alertController, animated: true, completion: nil)
@@ -67,7 +67,7 @@ class PlantInfoViewController: UIViewController {
         }
         else {
             // Display pop-up alert for error message if the app couldn't retrieve the current cell index
-            let alertController = UIAlertController(title: "Error", message:
+            let alertController = UIAlertController(title: "\(editNameTF.text!)\t\(editSpeciesTF.text!)", message:
                 "An error occured while saving changes.", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alertController, animated: true, completion: nil)
