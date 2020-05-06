@@ -32,7 +32,10 @@ class SettingsViewController: UIViewController {
     */
     
     @IBAction func SetBusyHours(){
-        
+        let ac = UIAlertController(title: "Work In Progress" ,message: "In IOS 13 Muting notifications for certain period of time is not allowed yet.We will include it once the feature is added into IOS", preferredStyle: .alert)
+                   let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                   ac.addAction(action)
+                   self.present(ac,animated:true)
     }
 
 }

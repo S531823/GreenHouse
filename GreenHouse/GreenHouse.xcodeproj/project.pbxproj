@@ -19,6 +19,7 @@
 		3F73C09424074B6A006BB0F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73C09324074B6A006BB0F0 /* Constants.swift */; };
 		3F73C09624074B9A006BB0F0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */; };
 		3F93D4CD2405FE0A005AD200 /* AddPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */; };
+		3FD50D4624627E7D004C6271 /* FaceIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD50D4524627E7D004C6271 /* FaceIDAuthentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		3F73C09324074B6A006BB0F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3F73C09524074B9A006BB0F0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3F93D4CC2405FE0A005AD200 /* AddPlantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlantViewController.swift; sourceTree = "<group>"; };
+		3FD50D4524627E7D004C6271 /* FaceIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDAuthentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				3F3D6CFE24062F5800E9925C /* Plants.swift */,
 				3F253F3C240A0F0B0013EC40 /* PlantInfoViewController.swift */,
 				3F46F01D2400C490000CC4B8 /* Main.storyboard */,
+				3FD50D4524627E7D004C6271 /* FaceIDAuthentication.swift */,
 				3F46F0202400C490000CC4B8 /* Assets.xcassets */,
 				3F46F0222400C490000CC4B8 /* LaunchScreen.storyboard */,
 				3F46F0252400C490000CC4B8 /* Info.plist */,
@@ -159,6 +162,7 @@
 				3F3D6CFF24062F5800E9925C /* Plants.swift in Sources */,
 				3F3D6CFD2406194000E9925C /* PlantListTableViewController.swift in Sources */,
 				3F253F3D240A0F0B0013EC40 /* PlantInfoViewController.swift in Sources */,
+				3FD50D4624627E7D004C6271 /* FaceIDAuthentication.swift in Sources */,
 				3F73C09624074B9A006BB0F0 /* SettingsViewController.swift in Sources */,
 				3F61870D2434E7FA00A6B57E /* NotificationScheduler.swift in Sources */,
 				3F46F0182400C490000CC4B8 /* AppDelegate.swift in Sources */,
@@ -309,6 +313,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8MR8R9CHY;
 				INFOPLIST_FILE = GreenHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -326,6 +331,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8MR8R9CHY;
 				INFOPLIST_FILE = GreenHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
