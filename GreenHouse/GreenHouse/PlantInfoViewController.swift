@@ -42,8 +42,11 @@ class PlantInfoViewController: UIViewController {
     
     @IBAction func save(_ sender: Any) {
         let oldPlant: Plant = plant
+        
+        if let intWaterTimeFrame = Int(editWaterFrequencyTF.text!), let intSunlightDuration = Int(editSunlightDurationTF.text!)
+        {
         if PlantListTableViewController.Global.currentCell != nil {
-            let plant: Plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: Int(editWaterFrequencyTF.text!)!, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: Int(editSunlightDurationTF.text!)!, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
+            let plant: Plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: intWaterTimeFrame, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: intSunlightDuration, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
             
             Plants.shared.edit(index: PlantListTableViewController.Global.currentCell, plant: plant)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
@@ -74,5 +77,13 @@ class PlantInfoViewController: UIViewController {
         }
         
     }
+        else
+        {
+            let ac = UIAlertController(title: "Invalid Entry" ,message: "Entered value should be an integer", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            ac.addAction(action)
+            self.present(ac,animated:true)
+                   }
+        }
 
 }
