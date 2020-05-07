@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlantInfoViewController: UIViewController {
+class PlantInfoViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate  {
     
     var plant: Plant!
     
@@ -18,6 +18,8 @@ class PlantInfoViewController: UIViewController {
     @IBOutlet weak var editWaterTimeFrameTF: UITextField!
     @IBOutlet weak var editSunlightDurationTF: UITextField!
     @IBOutlet weak var editSunlightTimeFrameTF: UITextField!
+    @IBOutlet weak var waterTimeFramePV: UIPickerView!
+    @IBOutlet weak var sunlightTimeFramePV: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +37,39 @@ class PlantInfoViewController: UIViewController {
         editNameTF.text = plant.name
         editSpeciesTF.text = plant.species
         editWaterFrequencyTF.text = String(plant.waterFrequency)
-        editWaterTimeFrameTF.text = plant.waterTimeFrame
+        //editWaterTimeFrameTF.text = plant.waterTimeFrame
         editSunlightDurationTF.text = String(plant.sunlightDuration)
-        editSunlightTimeFrameTF.text = plant.sunlightTimeFrame
+        //editSunlightTimeFrameTF.text = plant.sunlightTimeFrame
+        self.waterTimeFramePV.delegate = self
+        self.waterTimeFramePV.dataSource = self
+        self.sunlightTimeFramePV.delegate = self
+        self.sunlightTimeFramePV.dataSource = self
+    }
+    
+    let frequency = ["day", "week"]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return frequency[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return frequency.count
+    }
+    
+    var waterFreq = "day"
+    var sunlightFreq = "day"
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == waterTimeFramePV{
+            waterFreq = frequency[row]
+        }
+        else{
+            sunlightFreq = frequency[row]
+        }
     }
     
     @IBAction func save(_ sender: Any) {
@@ -46,7 +78,7 @@ class PlantInfoViewController: UIViewController {
         if let intWaterTimeFrame = Int(editWaterFrequencyTF.text!), let intSunlightDuration = Int(editSunlightDurationTF.text!)
         {
             if PlantListTableViewController.Global.currentCell != nil {
-                let plant: Plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: intWaterTimeFrame, waterTimeFrame: editWaterTimeFrameTF.text!, sunlightDuration: intSunlightDuration, sunlightTimeFrame: editSunlightTimeFrameTF.text!)
+                let plant: Plant = Plant(name: editNameTF.text!, species: editSpeciesTF.text!, waterFrequency: intWaterTimeFrame, waterTimeFrame: waterFreq, sunlightDuration: intSunlightDuration, sunlightTimeFrame: sunlightFreq)
                 
                 Plants.shared.edit(index: PlantListTableViewController.Global.currentCell, plant: plant)
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
