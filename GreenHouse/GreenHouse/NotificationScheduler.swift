@@ -7,7 +7,7 @@
 //
 import Foundation
 import UserNotifications
-
+//This class primary purpose is to schedule the notifications based on the user requirement
 class NotificationScheduler  {
     private var waterFrequancy : Int
     private var waterTimeFrame : String
@@ -20,7 +20,7 @@ class NotificationScheduler  {
         self.sunlightDuration = sunlightDuration
         self.sunlightTimeFrame = sunlightTimeFrame
     }
-    
+    // requesting authorization for sending notifications if succeed then respective notifications are scheduled
     func RequestPermission()  {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
@@ -34,7 +34,7 @@ class NotificationScheduler  {
             }
         }
     }
-    
+    //scheduling the remainder for pouring water in specified frequency
     func waterSchedule() {
         let center = UNUserNotificationCenter.current()
         center.removeAllPendingNotificationRequests()
@@ -105,8 +105,8 @@ class NotificationScheduler  {
         
     }
     
+    //scheduling the remainder for keeping the plant under sun for specified number of hours
     func sunLightSchedule() {
-        
         
         let content = UNMutableNotificationContent()
         content.title = "Keep plant under the sun"
@@ -114,6 +114,7 @@ class NotificationScheduler  {
         content.categoryIdentifier = "Remainder"
         content.sound = .default
         var dateComponents = DateComponents()
+        //switch between week and day of pickview
         switch self.sunlightTimeFrame {
         case "day":
             var  time = self.sunlightDuration

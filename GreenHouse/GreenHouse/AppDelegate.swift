@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        //Initiate faceID after launching the app
         let faceIDAuthenticator = FaceIDAuthentication()
         faceIDAuthenticator.tapButton()
         // Override point for customization after application launch.

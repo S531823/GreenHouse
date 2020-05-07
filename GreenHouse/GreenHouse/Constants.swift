@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//accessing viewController with storyboard IVC
 struct Constants {
     static let settingsViewController = "settingsVC"
     static let addPlantViewController = "addPlantVC"
