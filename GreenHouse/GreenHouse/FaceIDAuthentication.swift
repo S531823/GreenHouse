@@ -13,16 +13,16 @@ import UIKit
 //This class main purpose is to authenticate the user's biometric or FaceID
 class FaceIDAuthentication:UIViewController  {
     
-    enum AuthenticationState {
-        case loggedin, loggedout
+    enum authenticationState {
+        case loggedIn, loggedOut
     }
     
-    var state = AuthenticationState.loggedout
+    var state = authenticationState.loggedOut
     
-    func tapButton() {
+    func Authentication() {
         
-        if state == .loggedin {
-            state = .loggedout
+        if state == .loggedIn {
+            state = .loggedOut
         } else {
             let context = LAContext()
             var error: NSError?

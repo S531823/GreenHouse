@@ -21,13 +21,13 @@ class NotificationScheduler  {
         self.sunlightTimeFrame = sunlightTimeFrame
     }
     // requesting authorization for sending notifications if succeed then respective notifications are scheduled
-    func RequestPermission()  {
+    func requestPermission()  {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             if success {
                 print("permission granted")
                 self.waterSchedule()
                 print("scheduling sunlight remainder notifications")
-                self.sunLightSchedule()
+                self.sunlightSchedule()
                 print("sunLight remainder added")
             } else if let error = error {
                 print(error.localizedDescription)
@@ -106,7 +106,7 @@ class NotificationScheduler  {
     }
     
     //scheduling the remainder for keeping the plant under sun for specified number of hours
-    func sunLightSchedule() {
+    func sunlightSchedule() {
         
         let content = UNMutableNotificationContent()
         content.title = "Keep plant under the sun"

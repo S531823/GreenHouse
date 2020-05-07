@@ -61,7 +61,7 @@ class AddPlantViewController: UIViewController, UIPickerViewDataSource, UIPicker
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Added Plant"), object: nil)
                 // intantiated the notification scheduler class with required parameters
                 let notificationScheduler = NotificationScheduler.init(waterFrequancy: i , waterTimeFrame: waterFreq, sunlightDuration: j, sunlightTimeFrame: sunlightFreq)
-                notificationScheduler.RequestPermission()
+                notificationScheduler.requestPermission()
                 self.dismiss(animated: true, completion: nil)}
             else{
                 // to limit the hours entry
